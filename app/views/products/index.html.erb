@@ -1,0 +1,27 @@
+<h1>Listado de productos</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td><%= product.stock %></td>
+        <td>
+          <%= link_to "editar",  %>
+          <%= button_to "delete", product_path(product) , method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
+          <%= link_to "Ver", product %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
