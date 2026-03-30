@@ -17,8 +17,8 @@
         <td><%= product.price %></td>
         <td><%= product.stock %></td>
         <td>
-          <%= link_to "editar",  %>
-          <%= button_to "delete", product_path(product) , method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
+          <%= link_to "Editar", edit_product_path(product) %>
+          <%= button_to "Eliminar", product_path(product), method: :delete, data: { turbo_confirm: '¿Estás seguro?' } %>
           <%= link_to "Ver", product %>
         </td>
       </tr>

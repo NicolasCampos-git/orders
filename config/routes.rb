@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  get "products/new", to: "products#new", as: :new_product
-  get "products/:id", to: "products#show", as: :product
-  post "products", to: "products#create", as: :products
-  get "products/edit"
-  get "products/update"
-  get "products/destroy"
+  resources :products
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_26_135020) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_29_160813) do
+  create_table "detail_orders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "quantity"
+    t.float "subtotal"
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_detail_orders_on_order_id"
+    t.index ["product_id"], name: "index_detail_orders_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "address"
+    t.string "client"
+    t.datetime "created_at", null: false
+    t.string "pay_method"
+    t.float "total"
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.text "description"
@@ -19,4 +39,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_26_135020) do
     t.integer "stock"
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "detail_orders", "orders"
+  add_foreign_key "detail_orders", "products"
 end

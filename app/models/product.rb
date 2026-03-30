@@ -7,4 +7,5 @@ class Product < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than: 0 }
   # El stock solo permite enteros positivos.
   validates :stock, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  has_many :detail_orders
 end
